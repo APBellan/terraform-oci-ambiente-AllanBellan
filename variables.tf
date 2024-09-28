@@ -1,29 +1,27 @@
 variable "compartment_ocid" {
-  description = "OCID do compartimento"
   type        = string
+  description = "OCID do compartimento onde a instância será criada"
 }
 
 variable "subnet_ocids" {
-  description = "Lista de OCIDs das subnets"
   type        = list(string)
+  description = "Lista de OCIDs das subnets para as instâncias"
 }
 
-variable "instance_shape" {
-  description = "Formato da instância"
+variable "source_ocid" {
   type        = string
+  description = "OCID da imagem para criar a instância - Oracle Linux 8"
+  default     = "ocid1.image.oc1.sa-saopaulo-1.aaaaaaaa7oouirhxngn7emu3bq6kwoau2c365zipzlre5oat4zvpizrqsxwa"
+}
+
+variable "volume_size_in_gbs" {
+  type        = number
+  description = "Tamanho do volume de bloco em GB"
+  default     = 50
 }
 
 variable "ad_number" {
-  description = "Número do Availability Domain"
-  type        = string
-}
-
-variable "public_ip" {
-  description = "Tipo de IP público (RESERVED ou EPHEMERAL)"
-  type        = string
-}
-
-variable "ssh_public_keys" {
-  description = "Chave SSH pública para acesso à instância"
-  type        = string
+  type        = number
+  description = "Número do Availability Domain (AD) para provisionamento de recursos"
+  default     = 1  # Defina o AD padrão ou deixe o usuário fornecer
 }
