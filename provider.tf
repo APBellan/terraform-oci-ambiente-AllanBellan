@@ -1,8 +1,9 @@
 terraform {
+  required_version = ">= 1.3.0"  # Versão recente do Terraform
   required_providers {
     oci = {
       source  = "oracle/oci"
-      # version = "5.11.0" # Altere para a versão desejada ou remova para usar a mais recente
+      version = ">= 5.11.0"  # Última versão do provedor OCI
     }
   }
 }
